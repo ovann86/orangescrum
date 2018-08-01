@@ -1451,7 +1451,7 @@ class UsersController extends AppController {
 				}
 				if($this->Auth->user('isactive') == 2){
 					$cookie = array();
-					$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
+					//$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
 					$this->Auth->logout();
 					$this->Session->write("SES_EMAIL",$this->request->data['User']['email']);
 					$this->Session->setFlash("Oops! this account has been deactivated", 'default', array('class'=>'error'));
@@ -1843,7 +1843,7 @@ class UsersController extends AppController {
 		setcookie('REF_URL','',-1,'/',DOMAIN_COOKIE,false,false);
 		
 		$cookie = array();
-		$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
+		//$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
 		
 		if(SES_ID && !$qsrt) {
 			$this->User->id = SES_ID;
