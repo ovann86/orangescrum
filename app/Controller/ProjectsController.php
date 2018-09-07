@@ -368,27 +368,34 @@ class ProjectsController extends AppController {
 		$userscls = ClassRegistry::init('User');
 		$companyusercls = ClassRegistry::init('CompanyUser');
 		$postProject['Project'] = $this->params->data['Project'];
+		
 		if(isset($this->data['Project']['members_list']) && $this->data['Project']['members_list']){
+			
 			$emaillist = trim(trim($this->data['Project']['members_list']),',');
 			if(strstr(trim($emaillist),',')){
 				$emailid = explode(',', $emaillist);
 			}else{
 				$emailid = explode(',', $emaillist);
 			}
-			$emailarr='';
+			$emailarr=array();
 			foreach($emailid AS $ind =>$data){
+				
 				if(trim($data)!=''){
+					
 					$emailarr[$ind]= trim($data);
 					$cond .= " (email LIKE '%".trim($data)."%') OR";
 				}
 			}
-			//print_r($emailarr);exit;
+			
+			
 			if($emailarr!=''){
 				$emailarr = array_unique($emailarr);
 				$cond = substr($cond, 0,  strlen($cond)-2);
 				$userlist = $userscls->find('list',array('conditions'=>array($cond),'fields'=>array('id','email')));
+				
 				if($userlist){
 					$compuserlist = $companyusercls->find('list',array('conditions'=>array('company_id'=>SES_COMP,'user_id'=>array_keys($userlist),'is_active'=>1),'fields'=>array('CompanyUser.id','CompanyUser.user_id')));
+					#echo "<pre>";print_r($compuserlist);print_r($userlist);exit;
 					if($compuserlist){
 						foreach($compuserlist AS $k1=>$value){
 							$postProject['Project']['members'][]= $value;
@@ -396,6 +403,7 @@ class ProjectsController extends AppController {
 							//$index = array_search($userlist[$value],$emailarr);
 							//unset($emailarr[$index]);
 						}
+						
 						foreach($emailarr AS $key1=>$edata){
 							if(in_array(trim($edata),$removeduserlist)){
 								unset($emailarr[$key1]);
@@ -405,12 +413,14 @@ class ProjectsController extends AppController {
 				}
 			}
 		}
-		$memberslist ='';
+		
+		$memberslist =array();
 		if($postProject['Project']['members']){
 			$memberslist = array_unique($postProject['Project']['members']);
 		}elseif(!$GLOBALS['project_count']){
 			$memberslist[] = SES_ID;
 		}
+		#echo "<pre>";print_r($memberslist);exit;
 		if($this->params->data['Project'] && $postProject['Project']['validate'] == 1) {
 			$findName = $this->Project->find('first',array('conditions'=>array('Project.name'=>$postProject['Project']['name'],'Project.company_id'=>SES_ID),'fields'=>array('Project.id')));
 			if($findName) {
