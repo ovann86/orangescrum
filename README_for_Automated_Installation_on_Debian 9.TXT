@@ -1,6 +1,6 @@
-Installation Instruction for OrangeScrum Community edition on CentOS 7
+Installation Instruction for OrangeScrum Community edition on Debian 9
 ======================================================================
-*Note: This script will not work on shared hosting, only works on CentOS 7 dedicated server only.
+*Note: This script will not work on shared hosting, only works on Debian 9 dedicated server only.
 ======================================================================
 
 Prerequisities:
@@ -9,12 +9,12 @@ Hardware:
 ---------
 RAM: minimum 2 GB 
 Processor: Core2duo or Higher 
-OS: CentOS 7
+OS: Ubuntu 16
 Disk Space: 10 GB or Higher
 
 OS and Other required Parameters:
 ---------------------------------
-A Fresh CentOS 7 Server
+A Fresh Ubuntu 16 Server
 Internet Connection
 Email ID
 Email Password
@@ -27,7 +27,7 @@ SMTP Port (e.g., 25, 465, 587, etc.)
 ======================================================================
 *Note: Make sure to whitelist the application server domain/IP address from the private Mail Server.
 ======================================================================
-*Note: OrangeScrum will only works on MySQL 5.4-5.7, Apache 2.4 and PHP7.x.
+*Note: OrangeScrum will only works on MySQL 5.4-5.7, Apache 2.4 and PHP7.x
 ======================================================================
 
 What the installation package does:
@@ -47,17 +47,14 @@ Copy it to the Server’s “/tmp” directory where it will be installed.
 Login to "root" or run "sudo su -" and then enter the root password.
 $ sudo su -
 
-Change the directory to "/tmp"
-# cd /tmp
-
 If unzip is not installed, please install it:
-# yum install unzip
+# apt-get install unzip
 
 Unzip the downloaded package:
-# unzip orangescrum-centos7-php7.zip
+# unzip orangescrum-Debian9-php7.zip
 
-Change the directory to “orangescrum-centos7-php7”:
-# cd orangescrum-centos7-php7
+Change the directory to “orangescrum-Debian9-php7”:
+# cd orangescrum-Debian9-php7
 
 Make the setup.sh file executable:
 # chmod +x setup.sh
@@ -65,9 +62,16 @@ Make the setup.sh file executable:
 Run the setup.sh file:
 # ./setup
 
-During installation if MySQL database is already installed, it will ask for root password for MySQL database, else it will ask to setup root password for new installation.
+During if database is already installed, it will ask for root password for MySQL database, else it will ask to setup root password for new installation.
 
-It will install all the required packages and dependecies and will ask for email ID, Email Password, SMTP mail server address and SMTP port, Domain name or IP address for the Host.
+Enter the root password for MySQL and confirm by re-enter again.
+
+It will ask to setup the phpMyAdmin, please follow the steps:
+i. Select “apache2” and press “ok” to re-configure the Web Server automatically.
+ii. Select “Yes” to re-configure the database for phpMyAdmin with dbconfig-common.
+iii. Enter MySQL application password for phpMyAdmin, Enter the Database password you have just created
+
+Then it will install all the required packages and dependecies and will ask for email ID, Email Password, SMTP mail server address and SMTP port, Domain name or IP address for the Host.
 
 Open you browser and access the application using the domian/IP address:
 http://Your_Domain_or_IP_Address

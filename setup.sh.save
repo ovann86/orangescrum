@@ -14,8 +14,7 @@ phpversion=5.6
 phpversion70=7.0
 phpversion71=7.1
 phpversion72=7.2
-mysqlv8=8.0
-mysql_v=`dpkg -l | grep "mysql.*server" | tr -s ' ' | awk 'NR == 1' | cut -c 27-29`
+mysql_v=`dpkg --get-selections | grep -i mysql.*server  | awk 'NR == 2' | cut -c 14-16`
 Apache_ver=`dpkg -l | tr -s ' ' | grep -i apache2 | awk 'NR == 1 || apache2' | cut -c 12-14`
 php_ver=`php -v | grep -i php | awk 'NR == 1' | cut -c 5-7` > /dev/null 2>&1
 clear
@@ -23,35 +22,21 @@ echo "You need a fresh OS for OrangeScrum Community to work with"
 echo "Orangescrum will work with MySQL 5.5-5.7, Apache Web Server 2.4 amd PHP 5.6, 7.0 & 7.2"
 
 #MySQL-Server
-if [ "$mysql_v" = "$mysqlversion" ] || [ "$mysql_v" = "$mysqlversion1" ] || [ "$mysql_v" = "$mysqlversion2" ]; then
-        echo "Found MySQL $mysql_v, on this Server"
-        elif [ "$mysql_v" = "$mysqlv8" ]; then
-         clear
-         echo "Found MySQL Database Version $mysql_v8 on this Server"
-         echo "Orangescrum Community Edition will only work with MySQL 5.5, 5.6 and 5.7"
-         echo "If you are running any other application with MySQL 8.0 on this Server"
-         echo "then consider using another server for Orangescrum Community Edition."
-         echo "OR"
-         echo "Uninstall MySQL Database Server $mysql_v8 and run Orangescrum setup again..."
-         exit 1
-else
-         echo "MySQL Server not found on this Server"
+if [ ! -z "$mysql_v" ]; then
+	echo "Found MySQL $mysql_v on your Server"
+#	echo "If you are running any other application with the current versions of MySQL, unistalling MySQL-$mysql_v might create issue"
 fi
 
 #Apache Web Server
 if [ ! -z "$Apache_ver" ]; then
-        echo "Found Apache Web Server $Apache_ver on your Server"
-        echo "If you are running any other application with the current versions of Apache, unistalling Apache Web Server $Apache_ver might create issue"
-else
-        echo "Apache Web Server not found on this Server"
+	echo "Found Apache Web Server $Apache_ver on your Server"
+	echo "If you are running any other application with the current versions of Apache, unistalling Apache Web Server $Apache_ver might create issue"
 fi
 
 #PHP Packages on your Server
 if [ ! -z "$php_ver" ]; then
-        echo "Found PHP $php_ver on your Server"
-        echo "If you are running any other application with the current versions of PHP, unistalling PHP-$php_ver might create issue"
-else
-        echo "PHP and required extensions not found on this Server"
+	echo "Found PHP $php_ver on your Server"
+	echo "If you are running any other application with the current versions of PHP, unistalling PHP-$php_ver might create issue"
 fi
 
 echo "Do you want to Continue, type Y/N"
@@ -79,7 +64,7 @@ if [ "$frwald" = "$firwald" ]; then
 else
 	echo "Firewalld is not installed, not setting up firewall rules"
 fi
-sed -i "s/deb cdrom:/# deb cdrom:/g" "/etc/apt/sources.list"
+
 echo 'deb  http://deb.debian.org/debian  stretch main
 deb-src  http://deb.debian.org/debian  stretch main' >> /etc/apt/sources.list
 
@@ -98,8 +83,8 @@ deb-src http://repo.mysql.com/apt/debian/ stretch mysql-5.7' > /etc/apt/sources.
 	apt install -y mysql-server
 	/lib/systemd/systemd-sysv-install enable mysql
 	service mysql restart
-	clear
-	echo "Enter the Root Password for MySQL Database you have created just before:"
+	echo "Note: Please Remember the root password of MySQL database"
+	echo "Enter New Root Password for MySQL Database:"
 	read -s DBPASS
 	apt install -y expect
 	echo "--> Set root password"
@@ -107,12 +92,10 @@ deb-src http://repo.mysql.com/apt/debian/ stretch mysql-5.7' > /etc/apt/sources.
         SECURE_MYSQL=$(expect -c "
         set timeout 10
         spawn mysql_secure_installation
-        expect \"Enter current password for root (enter for none):\"
+        expect \"Enter the root password oot (enter for none):\"
         send \"${DBPASS}\r\"
 	expect \"Would you like to setup VALIDATE PASSWORD plugin?\"
         send -- \"n\r\"
-	expect \"Change the password for root ?\"
-	send -- \"n\r\"
         expect \"Set root password?\"
         send -- \"n\r\"
         expect \"Remove anonymous users?\"
@@ -147,12 +130,12 @@ if [ "$php_ver" = "$phpversion70"  ] || [ "$php_ver" = "$phpversion71" ] || [ "$
 	elif [ "$php_ver" = "$phpversion" ]; then
 	        echo "Uninstalling PHP $php_ver from your Server"
 		apt -y purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
-		apt -y autoremove
+		apt autoremove
 else
             echo "Installing PHP 7.2 and all the required extensions"
-	    apt-get -y install apt-transport-https lsb-release ca-certificates
-	    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-	    echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+	    apt install ca-certificates apt-transport-https
+	    wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
+	    echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
 	    apt update
 	    apt install -y php7.2 php7.2-bcmath php7.2-cgi php7.2-cli php7.2-common php-curl php7.2-dba php7.2-enchant php7.2-fpm php7.2-gd php7.2-imap php7.2-intl php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-opcache php-imagick php-memcache php7.2-soap php7.2-tidy php7.2-xml php7.2-zip libapache2-mod-php7.2
 fi
@@ -166,8 +149,8 @@ else
 fi
 
 #Set application Directory
-find / -name '*orangescrum-debian9*' -exec mv -t $WEBROOT/ {} + > /dev/null 2>&1
-mv $WEBROOT/orangescrum-debian9-php7 $WEBROOT/orangescrum-master
+find / -name '*orangescrum-master*' -exec mv -t $WEBROOT/ {} + > /dev/null 2>&1
+#mv $WEBROOT/orangescrum-master $WEBROOT/orangescrum-master
 
 phpadminv=`dpkg -l | grep -i phpmyadmin| awk '{print $2}' |tr "\n" " "`
 phpadminver=phpMyAdmin
@@ -189,7 +172,7 @@ htmlpdf=wkhtmltopdf
 if [ "$htmltpdf" = "$htmlpdf" ]; then
 	echo "html to pdf already installed"
 else
-	apt -y install xvfb vim libfontconfig wkhtmltopdf
+	apt -y install xvfb libfontconfig wkhtmltopdf
 fi
 
 #To access phpmyadmin in browser and app to work properly, the following things to be changed 
@@ -308,7 +291,6 @@ sed -i "s/SMTP_PORT =/#SMTP_PORT = /" "$APPROOT/app/Config/config.ini.php"
 sed -i "/#SMTP_PORT =/aSMTP_PORT = "$SMTP_PORT"" "$APPROOT/app/Config/config.ini.php"
 sed -i "/#SMTP_PORT =/d" "$APPROOT/app/Config/config.ini.php"
 
-clear
 echo "OrangeScrum Community Edition Installation Completed Successfully."
 echo "Open you browser and access the application using the domian/IP address:"
 echo "http://Your_Domain_or_IP_Address/"
