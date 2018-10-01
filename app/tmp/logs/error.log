@@ -50,7 +50,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:41:56 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
+2018-09-10 06:44:09 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_outer.ctp, line 21
@@ -63,7 +63,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:41:56 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
+2018-09-10 06:44:09 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_outer.ctp, line 23
@@ -76,7 +76,33 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:42:27 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+2018-09-10 10:36:31 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 21
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-10 10:36:31 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 23
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-10 10:38:02 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_inner.ctp, line 105
@@ -89,7 +115,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:42:36 Warning: Warning (2): array_unique() expects parameter 1 to be array, null given in [/var/www/html/orangescrum-master/app/Controller/ProjectsController.php, line 1914]
+2018-09-10 10:57:06 Warning: Warning (2): array_unique() expects parameter 1 to be array, null given in [/var/www/html/orangescrum-master/app/Controller/ProjectsController.php, line 1914]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 array_unique - [internal], line ??
@@ -100,7 +126,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:42:46 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+2018-09-10 10:57:12 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_inner.ctp, line 105
@@ -113,7 +139,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:43:16 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+2018-09-10 10:57:24 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_inner.ctp, line 105
@@ -126,7 +152,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -141,7 +167,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -156,7 +182,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -171,7 +197,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -186,7 +212,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -201,7 +227,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -216,7 +242,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -231,7 +257,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+2018-09-10 10:57:33 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 Security::cipher() - CORE/Cake/Utility/Security.php, line 219
@@ -246,7 +272,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (2): Illegal string offset 'allfiles' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
+2018-09-10 10:57:33 Warning: Warning (2): Illegal string offset 'allfiles' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 418
@@ -257,7 +283,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (2): Illegal string offset 'storage' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
+2018-09-10 10:57:33 Warning: Warning (2): Illegal string offset 'storage' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 418
@@ -268,7 +294,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Warning: Warning (2): Illegal string offset 'file_error' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
+2018-09-10 10:57:33 Warning: Warning (2): Illegal string offset 'file_error' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 418
@@ -279,7 +305,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:27 Error: [SocketException] php_network_getaddresses: getaddrinfo failed: Name or service not known
+2018-09-10 10:57:33 Error: [SocketException] Invalid argument
 Request URL: /easycases/ajaxemail
 Stack Trace:
 #0 /var/www/html/orangescrum-master/lib/Cake/Network/Email/SmtpTransport.php(146): CakeSocket->connect()
@@ -287,8 +313,8 @@ Stack Trace:
 #2 /var/www/html/orangescrum-master/lib/Cake/Network/Email/CakeEmail.php(1173): SmtpTransport->send(Object(CakeEmail))
 #3 /var/www/html/orangescrum-master/lib/Cake/Controller/Component/EmailComponent.php(346): CakeEmail->send('<div style='fon...')
 #4 /var/www/html/orangescrum-master/app/Controller/Component/SendgridComponent.php(52): EmailComponent->send('<div style='fon...')
-#5 /var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php(779): SendgridComponent->sendGridEmail('notify@mycompan...', 'biswajit.andola...', '[Orangescrum]:m...', '<div style='fon...', 'New', 'biswajit.andola...')
-#6 /var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php(832): PostcaseComponent->generateMsgAndSendMail('1', '', '1', 'N/W Admin', '', '1', '1', '2', '<font color='#7...', 'posted a new Ta...', NULL, 'biswajit.andola...', 'c8d1571cb7c9846...', 'New', 'biswajit.andola...', 'biswajit.andola...', 'http://192.168....')
+#5 /var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php(779): SendgridComponent->sendGridEmail('notify@mycompan...', 'as@as.com', '[Orangescrum]:a...', '<div style='fon...', 'New', 'as')
+#6 /var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php(832): PostcaseComponent->generateMsgAndSendMail('1', '', '1', 'asdfg', '', '1', '1', '2', '<font color='#7...', 'posted a new Ta...', NULL, 'as', 'a46bb27ec8ebb44...', 'New', 'as@as.com', 'as', 'http://192.168....')
 #7 /var/www/html/orangescrum-master/app/Controller/EasycasesController.php(4477): PostcaseComponent->mailToUser(Array, Array)
 #8 [internal function]: EasycasesController->ajaxemail()
 #9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(EasycasesController), Array)
@@ -296,13 +322,13 @@ Stack Trace:
 #11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(EasycasesController), Object(CakeRequest))
 #12 /var/www/html/orangescrum-master/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
-2018-09-10 06:44:27 Error: Fatal Error (256): [CakeException] Unknown status code
-#0 /var/www/html/orangescrum-master/lib/Cake/Error/ExceptionRenderer.php(228): CakeResponse->statusCode(0)
+2018-09-10 10:57:33 Error: Fatal Error (256): [CakeException] Unknown status code
+#0 /var/www/html/orangescrum-master/lib/Cake/Error/ExceptionRenderer.php(228): CakeResponse->statusCode(22)
 #1 /var/www/html/orangescrum-master/lib/Cake/Error/ExceptionRenderer.php(190): ExceptionRenderer->error400(Object(SocketException))
 #2 /var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php(127): ExceptionRenderer->render()
 #3 [internal function]: ErrorHandler::handleException(Object(SocketException))
 #4 {main} in [/var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php, line 138]
-2018-09-10 06:44:27 Error: Fatal Error (1): Uncaught InternalErrorException: Internal Server Error in /var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php:261
+2018-09-10 10:57:33 Error: Fatal Error (1): Uncaught InternalErrorException: Internal Server Error in /var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php:261
 Stack trace:
 #0 /var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(256, '[CakeException]...', '/var/www/html/o...', 138)
 #1 [internal function]: ErrorHandler::handleError(256, '[CakeException]...', '/var/www/html/o...', 138, Array)
@@ -310,7 +336,7 @@ Stack trace:
 #3 [internal function]: ErrorHandler::handleException(Object(SocketException))
 #4 {main}
   thrown in [/var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php, line 261]
-2018-09-10 06:44:27 Error: [InternalErrorException] Internal Server Error
+2018-09-10 10:57:33 Error: [InternalErrorException] Internal Server Error
 Request URL: /easycases/ajaxemail
 Stack Trace:
 #0 /var/www/html/orangescrum-master/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(1, 'Uncaught Intern...', '/var/www/html/o...', 261)
@@ -318,8 +344,8 @@ Stack Trace:
 #2 /var/www/html/orangescrum-master/lib/Cake/Core/App.php(943): App::_checkFatalError()
 #3 [internal function]: App::shutdown()
 #4 {main}
-2018-09-10 06:44:27 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
-2018-09-10 06:44:27 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+2018-09-10 10:57:33 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+2018-09-10 10:57:33 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_inner.ctp, line 105
@@ -332,7 +358,7 @@ Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
 Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
 [main] - APP/webroot/index.php, line 92
 
-2018-09-10 06:44:38 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+2018-09-10 10:57:37 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
 Trace:
 ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
 include - APP/View/Layouts/default_inner.ctp, line 105

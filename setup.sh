@@ -14,15 +14,9 @@ phpversion=5.6
 phpversion70=7.0
 phpversion71=7.1
 phpversion72=7.2
-#mysql_v=`dpkg -l | grep "mysql.*server" | tr -s ' ' | awk 'NR == 1 || mysql' | cut -c 17-19`
 mysql_v=`dpkg --get-selections | grep -i mysql.*server  | awk 'NR == 2' | cut -c 14-16`
 Apache_ver=`dpkg -l | tr -s ' ' | grep -i apache2 | awk 'NR == 1 || apache2' | cut -c 12-14`
-#php_ver=`dpkg -l | tr -s ' ' | grep -i php | awk 'NR == 2 || php' | cut -c 11-13`
-#php_ver=`dpkg --get-selections | grep -i php | awk 'NR == 25 || php' | cut -c 4-6`
 php_ver=`php -v | grep -i php | awk 'NR == 1' | cut -c 5-7` > /dev/null 2>&1
-#mysql_ver=`mysql -V | awk '{ print $5 }' | cut -c 1-3` > /dev/null 2>&1
-#Apache_v=`apache2 -v | grep -i Apache |awk '{ print $3 }'| cut -c 8-10`
-#php_v=`php -v | grep -i php | awk 'NR == 1' | cut -c 5-7`
 clear
 echo "You need a fresh OS for OrangeScrum Community to work with"
 echo "Orangescrum will work with MySQL 5.5-5.7, Apache Web Server 2.4 amd PHP 5.6, 7.0 & 7.2"
@@ -57,10 +51,7 @@ fi
 
 echo "OrangeScrum Installation Started, Please Wait"
 #Add Firewall rules for Apache and mysql
-#echo `setenforce 0`
-#echo `getenforce`
-#sed -i "s/SELINUX=enforcing/SELINUX=permissive/g" /etc/selinux/config
-#apt-get -y update
+#Updating package manager
 dpkg --configure -a
 
 frwald=`dpkg -l | grep firewalld | tr -s ' ' | cut -c 4-12`
@@ -75,8 +66,6 @@ else
 fi
 
 #MySQL-Server Uninstall
-#mysqlver=`mysql -V | awk '{ print $5 }' | cut -c 1-3`
-#if [ $mysql_ver = $mysqlversion ] || [ $mysql_ver = $mysqlversion1 ] || [ $mysql_ver = $mysqlversion2 ]; then
 if [ "$mysql_v" = "$mysqlversion" ] || [ "$mysql_v" = "$mysqlversion1" ] || [ "$mysql_v" = "$mysqlversion2" ]; then
         echo "Found MySQL $mysql_v, Continue Installation"
 	echo "Please enter the currently installed MySQL database root password"
@@ -87,7 +76,8 @@ else
 	apt install -y mysql-server	
 	systemctl enable mysql
 	service mysql restart
-	echo "Enter the MySQL root password you have create just before:"
+	echo "Note: Please Remember the root password of MySQL database"
+	echo "Enter New Root Password for MySQL Database:"
 	read -s DBPASS
 	apt-get install -y expect
 	echo "--> Set root password"
@@ -96,11 +86,15 @@ else
         set timeout 10
         spawn mysql_secure_installation
         expect \"Enter current password for root (enter for none):\"
-        send \"${DBPASS}\r\"
+        send \"\r\"
 	expect \"Would you like to setup VALIDATE PASSWORD plugin?\"
         send -- \"n\r\"
         expect \"Change the password for root ?\"
-        send -- \"n\r\"
+        send -- \"y\r\"
+	expect \"New password:\"
+        send -- \"${DBPASS}\r\"
+        expect \"Re-enter new password:\"
+        send -- \"${DBPASS}\r\"
         expect \"Remove anonymous users?\"
         send \"y\r\"
         expect \"Disallow root login remotely?\"
@@ -128,8 +122,6 @@ else
 	service apache2 restart
 fi
 #PHP Packages Uninstall
-#if [ "$php_ver" = "$phpversion" ]; then
-#        echo "Found PHP $php_ver, Continue Installation"
 if [ "$php_ver" = "$phpversion70"  ] || [ "$php_ver" = "$phpversion71" ] || [ "$php_ver" = "$phpversion72" ]; then
         echo "Found PHP $php_ver, Installation will continue..."
 	elif [ "$php_ver" = "$phpversion" ]; then
@@ -137,37 +129,10 @@ if [ "$php_ver" = "$phpversion70"  ] || [ "$php_ver" = "$phpversion71" ] || [ "$
 		apt-get -y purge `dpkg -l | grep php| awk '{print $2}' |tr "\n" " "`
 		apt-get autoremove
 else
-	PS3='Which Version of PHP you want to Install, Please enter your choice: '
-	options=("PHP 7.0" "PHP 7.2")
-	select opt in "${options[@]}"
-	do
-	    case $opt in
-        "PHP 7.0")
-            echo "Installing PHP 7.0 and all the required extensions"
-	    apt-get -y install libpython-stdlib libpython2.7-minimal libpython2.7-stdlib python python-apt python-minimal python-pycurl python-software-properties python2.7 python2.7-minimal
-            apt install -y python-software-properties
-	    apt-get -y install php7.0 php7.0-cgi php7.0-cli php7.0-common php7.0-curl php7.0-dba php7.0-fpm php7.0-gd php7.0-imap php7.0-intl php7.0-ldap php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-opcache php-imagick php-memcache php7.0-soap php7.0-tidy php7.0-xml php7.0-zip libapache2-mod-php7.0
-	    service apache2 restart
-	    break
-            ;;
-        "PHP 7.2")
             echo "Installing PHP 7.2 and all the required extensions"
-	    apt-get -y install libpython-stdlib libpython2.7-minimal libpython2.7-stdlib python python-apt python-minimal python-pycurl python-software-properties python2.7 python2.7-minimal
-	    add-apt-repository ppa:ondrej/php
 	    apt-get update
-	    apt-get -y install php7.2 php7.2-bcmath php7.2-cgi php7.2-cli php7.2-common php-curl php7.2-dba php7.2-enchant php7.2-fpm php7.2-gd php7.2-imap php7.2-intl php7.2-ldap php7.2-mbstring php-mcrypt php7.2-mysql php7.2-opcache php-imagick php-memcache php7.2-soap php7.2-tidy php7.2-xml php7.2-zip libapache2-mod-php7.2
 	    service apache2 restart
-	    break
-            ;;
-        	*) echo "invalid option $REPLY";;
-	    esac
-	done
-#        echo "Installing PHP and all the required extensions"
-#	apt install -y python-software-properties
-#	add-apt-repository ppa:ondrej/php
-#	apt update
-#	apt install -y php5.6 php5.6-gd php5.6-curl php5.6-common php5.6-fpm php5.6-cli php5.6-gd php5.6-imap php5.6-intl php5.6-ldap php5.6-mysql php5.6-snmp php5.6-tidy php5.6-mcrypt php5.6-mbstring php5.6-soap php5.6-zip php5.6-dba php5.6 libapache2-mod-php5.6 php5.6-curl php5.6-gd php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-xml php5.6-xmlrpc
-#	service apache2 restart
+            apt-get install -y php7.2 php7.2-bcmath php7.2-cgi php7.2-cli php7.2-common php-curl php7.2-dba php7.2-enchant php7.2-fpm php7.2-gd php7.2-imap php7.2-intl php7.2-ldap php7.2-mbstring php7.2-mysql php7.2-opcache php-imagick php-memcache php7.2-soap php7.2-tidy php7.2-xml php7.2-zip libapache2-mod-php7.2
 fi
 
 php_version=`php -v | grep -i php | awk 'NR == 1' | cut -c 5-7`
@@ -179,18 +144,17 @@ else
 fi
 
 #Set application Directory
-find / -name '*orangescrum-ubuntu16*' -exec mv -t $WEBROOT/ {} + > /dev/null 2>&1
-mv $WEBROOT/orangescrum-ubuntu16-php7 $WEBROOT/orangescrum-master
+find / -name '*orangescrum-ubuntu18*' -exec mv -t $WEBROOT/ {} + > /dev/null 2>&1
+mv $WEBROOT/orangescrum-ubuntu18-php7 $WEBROOT/orangescrum-master
 
 phpadminv=`dpkg -l | grep -i phpmyadmin| awk '{print $2}' |tr "\n" " "`
 phpadminver=phpMyAdmin
 #Install phpMyAdmin(To access database Using UI)
-#if [ "$phpversion" = "$php_version" ]; then
 if [ "$php_version" = "$phpversion70"  ] || [ "$php_version" = "$phpversion71" ] || [ "$php_version" = "$phpversion72" ]; then
 	echo "Installing phpMyAdmin"
 	apt update
 	apt install -y phpmyadmin
-	phpenmod mcrypt
+#	phpenmod mcrypt
 	phpenmod mbstring
 else
 	echo "PHP $phpversion not installed, phpMyAdmin will not be installed"
@@ -208,6 +172,7 @@ fi
 
 #To access phpmyadmin in browser and app to work properly, the following things to be changed 
 #    	* Change the 'post_max_size' and `upload_max_filesize` to 200Mb in php.ini
+# and some additional parameters
 if [ "$php_version" = "$phpversion72" ]; then
 	echo "Changing PHP parameters" 
 	sed -i "s/post_max_size = /; post_max_size = /g" "/etc/php/7.2/apache2/php.ini"
@@ -308,10 +273,18 @@ a2ensite orangescrum.conf
 service apache2 restart
 
 #Change Email Parameters
-sed -i "s/SMTP_UNAME =/SMTP_UNAME = "$USER_NAME"/" "$APPROOT/app/Config/config.ini.php"
-sed -i "s/SMTP_PWORD =/SMTP_PWORD = "$EPASSWD"/" "$APPROOT/app/Config/config.ini.php"
-sed -i "s/SMTP_HOST =/SMTP_HOST = ssl:\/\/"$SMTP_ADDR"/" "$APPROOT/app/Config/config.ini.php"
-sed -i "s/SMTP_PORT =/SMTP_PORT = "$SMTP_PORT"/" "$APPROOT/app/Config/config.ini.php"
+sed -i "s/SMTP_UNAME =/#SMTP_UNAME = /" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_UNAME =/aSMTP_UNAME = "$USER_NAME"" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_UNAME =/d" "$APPROOT/app/Config/config.ini.php"
+sed -i "s/SMTP_PWORD =/#SMTP_PWORD = /" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_PWORD =/aSMTP_PWORD = "$EPASSWD"" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_PWORD =/d" "$APPROOT/app/Config/config.ini.php"
+sed -i "s/SMTP_HOST =/#SMTP_HOST = /" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_HOST =/aSMTP_HOST = ssl:\/\/"$SMTP_ADDR"" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_HOST =/d" "$APPROOT/app/Config/config.ini.php"
+sed -i "s/SMTP_PORT =/#SMTP_PORT = /" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_PORT =/aSMTP_PORT = "$SMTP_PORT"" "$APPROOT/app/Config/config.ini.php"
+sed -i "/#SMTP_PORT =/d" "$APPROOT/app/Config/config.ini.php"
 
 echo "OrangeScrum Community Edition Installation Completed Successfully."
 echo "Open you browser and access the application using the domian/IP address:"
