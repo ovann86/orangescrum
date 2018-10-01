@@ -1,6 +1,6 @@
-Installation Instruction for OrangeScrum Community edition on Debian 9
+Installation Instruction for OrangeScrum Community edition on Ubuntu 16
 ======================================================================
-*Note: This script will not work on shared hosting, only works on Debian 9 dedicated server only.
+*Note: This script will not work on shared hosting, only works on Ubuntu 16 dedicated server only.
 ======================================================================
 
 Prerequisities:
@@ -51,10 +51,10 @@ If unzip is not installed, please install it:
 # apt-get install unzip
 
 Unzip the downloaded package:
-# unzip orangescrum-Debian9-php7.zip
+# unzip orangescrum-ubuntu16-php7.zip
 
-Change the directory to “orangescrum-Debian9-php7”:
-# cd orangescrum-Debian9-php7
+Change the directory to “orangescrum-ubuntu16-php7”:
+# cd orangescrum-ubuntu16-php7
 
 Make the setup.sh file executable:
 # chmod +x setup.sh
