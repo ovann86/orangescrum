@@ -1,6 +1,6 @@
-Installation Instruction for OrangeScrum Community edition on Ubuntu 16
+Installation Instruction for OrangeScrum Community edition on CentOS 7
 ======================================================================
-*Note: This script will not work on shared hosting, only works on Ubuntu 15 onwards dedicated server only.
+*Note: This script will not work on shared hosting, only works on CentOS 7 dedicated server only.
 ======================================================================
 
 Prerequisities:
@@ -9,12 +9,12 @@ Hardware:
 ---------
 RAM: minimum 2 GB 
 Processor: Core2duo or Higher 
-OS: Ubuntu
+OS: CentOS 7
 Disk Space: 10 GB or Higher
 
 OS and Other required Parameters:
 ---------------------------------
-A Fresh Ubuntu Server
+A Fresh CentOS 7 Server
 Internet Connection
 Email ID
 Email Password
@@ -27,7 +27,7 @@ SMTP Port (e.g., 25, 465, 587, etc.)
 ======================================================================
 *Note: Make sure to whitelist the application server domain/IP address from the private Mail Server.
 ======================================================================
-*Note: OrangeScrum will only works on MySQL 5.4-5.7, Apache 2.4 and PHP 5.4-5.6, PHP7.0 coming soon..
+*Note: OrangeScrum will only works on MySQL 5.4-5.7, Apache 2.4 and PHP7.x.
 ======================================================================
 
 What the installation package does:
@@ -36,6 +36,7 @@ Installs and configure Apache Web Server
 Installs MySQL Server, creates database and configures user for database or create database in an existing mysql setup and configures user
 Setup cron jobs
 configure email settings
+
 
 Steps to install application:
 Download the OrangeScrum Community Edition Package
@@ -49,31 +50,24 @@ $ sudo su -
 Change the directory to "/tmp"
 # cd /tmp
 
-Extract the compressed file:
-# tar xzf os_community*.*tar.gz
+If unzip is not installed, please install it:
+# yum install unzip
 
-OR
+Unzip the downloaded package:
+# unzip orangescrum-centos7-php7.zip
 
-If downloaded from github, zip file will be downloaded, to extract follow the steps:
-Install unzip by typing: “apt -y install unzip”, then unzip the code:
-# unzip os_community*.*zip
+Change the directory to “orangescrum-centos7-php7”:
+# cd orangescrum-centos7-php7
 
-Change the directory to “orangescrum-master”:
-# cd orangescrum-master
+Make the setup.sh file executable:
+# chmod +x setup.sh
 
 Run the setup.sh file:
-./setup
+# ./setup
 
-During if database is already installed, it will ask for root password for MySQL database, else it will ask to setup root password for new installation.
+During installation if MySQL database is already installed, it will ask for root password for MySQL database, else it will ask to setup root password for new installation.
 
-Re-enter the password MySQL root password again.
-
-It will ask to setup the phpMyAdmin, please follow the steps:
-i. Select “apache2” and press “ok” to re-configure the Web Server automatically.
-ii. Select “Yes” to re-configure the database for phpMyAdmin with dbconfig-common.
-iii. Enter MySQL application password for phpMyAdmin, Enter the Database password you have just created
-
-Then it will install all the required packages and dependecies and will ask for email ID, Email Password, SMTP mail server address and SMTP port, Domain name or IP address for the Host.
+It will install all the required packages and dependecies and will ask for email ID, Email Password, SMTP mail server address and SMTP port, Domain name or IP address for the Host.
 
 Open you browser and access the application using the domian/IP address:
 http://Your_Domain_or_IP_Address

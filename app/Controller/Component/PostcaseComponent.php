@@ -1041,15 +1041,9 @@ Team Orangescrum
                             $obj->set('company_name', CMP_SITE);
                             $obj->set('fromEmail', $fromEmail);
                             $obj->set('fromName', $fromName);
+
                             try {
-                                if(defined("PHPMAILER") && PHPMAILER == 1){
-                                    $this->Email->set_variables = $this->render('/Emails/html/invite_user',false);
-                                    App::import('Component', 'PhpMailer.PhpMailer');
-                                    $this->PhpMailer = new PhpMailerComponent();
-                                    $this->PhpMailer->sendPhpMailerTemplate($this->Email);
-                                }else{
-                                    $this->Sendgrid->sendgridsmtp($this->Email);    
-                                }
+                                $this->Sendgrid->sendgridsmtp($this->Email);
                             } Catch (Exception $e) {
                                 
                             }

@@ -1,0 +1,497 @@
+2018-09-17 07:43:02 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 21
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 07:43:02 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 23
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 07:43:10 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.timezones' doesn't exist
+Request URL: /users/register_user
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `Timezon...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `Timezon...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `Timezon...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(Timezone), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('first', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('first', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/UsersController.php(3343): AppModel->find('first', Array)
+#8 [internal function]: UsersController->register_user()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 07:43:10 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 21
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+ExceptionRenderer::_outputMessage() - CORE/Cake/Error/ExceptionRenderer.php, line 292
+ExceptionRenderer::error500() - CORE/Cake/Error/ExceptionRenderer.php, line 260
+ExceptionRenderer::render() - CORE/Cake/Error/ExceptionRenderer.php, line 190
+ErrorHandler::handleException() - CORE/Cake/Error/ErrorHandler.php, line 127
+[main] - [internal], line ??
+
+2018-09-17 07:43:10 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 23
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+ExceptionRenderer::_outputMessage() - CORE/Cake/Error/ExceptionRenderer.php, line 292
+ExceptionRenderer::error500() - CORE/Cake/Error/ExceptionRenderer.php, line 260
+ExceptionRenderer::render() - CORE/Cake/Error/ExceptionRenderer.php, line 190
+ErrorHandler::handleException() - CORE/Cake/Error/ErrorHandler.php, line 127
+[main] - [internal], line ??
+
+2018-09-17 07:45:02 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.user_subscriptions' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `UserSub...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `UserSub...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `UserSub...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(UserSubscription), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('list', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('list', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(783): AppModel->find('list', Array)
+#8 [internal function]: CronController->dailyUpdateMail()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 07:45:02 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.users' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `Dailyup...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `Dailyup...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `Dailyup...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(DailyupdateNotification), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('all', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('all', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(576): AppModel->find('all', Array)
+#8 [internal function]: CronController->dailyupdate_notifications()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 07:59:13 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 21
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 07:59:13 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 23
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:00:01 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.user_notifications' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `UserNot...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `UserNot...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `UserNot...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(UserNotification), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('list', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('list', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(863): AppModel->find('list', Array)
+#8 [internal function]: CronController->weeklyusagedetails()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 08:00:01 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.users' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `Dailyup...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `Dailyup...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `Dailyup...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(DailyupdateNotification), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('all', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('all', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(576): AppModel->find('all', Array)
+#8 [internal function]: CronController->dailyupdate_notifications()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 08:00:01 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.user_subscriptions' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `UserSub...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `UserSub...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `UserSub...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(UserSubscription), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('list', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('list', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(783): AppModel->find('list', Array)
+#8 [internal function]: CronController->dailyUpdateMail()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 08:15:01 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.user_subscriptions' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `UserSub...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `UserSub...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `UserSub...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(UserSubscription), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('list', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('list', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(783): AppModel->find('list', Array)
+#8 [internal function]: CronController->dailyUpdateMail()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 08:15:01 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangescrum.users' doesn't exist
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(470): PDOStatement->execute(Array)
+#1 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(436): DboSource->_execute('SELECT `Dailyup...', Array)
+#2 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(673): DboSource->execute('SELECT `Dailyup...', Array, Array)
+#3 /var/www/html/orangescrum-master/lib/Cake/Model/Datasource/DboSource.php(1184): DboSource->fetchAll('SELECT `Dailyup...', Array)
+#4 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3038): DboSource->read(Object(DailyupdateNotification), Array)
+#5 /var/www/html/orangescrum-master/lib/Cake/Model/Model.php(3010): Model->_readDataSource('all', Array)
+#6 /var/www/html/orangescrum-master/app/Model/AppModel.php(35): Model->find('all', Array)
+#7 /var/www/html/orangescrum-master/app/Controller/CronController.php(576): AppModel->find('all', Array)
+#8 [internal function]: CronController->dailyupdate_notifications()
+#9 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(CronController), Array)
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(CronController), Object(CakeRequest))
+#12 /var/www/html/orangescrum-master/app/webroot/cron_dispatcher.php(93): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2018-09-17 08:46:06 Warning: Warning (2): Use of undefined constant CLIENT_ID_SIGNUP - assumed 'CLIENT_ID_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 21]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 21
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:46:06 Warning: Warning (2): Use of undefined constant REDIRECT_URI_SIGNUP - assumed 'REDIRECT_URI_SIGNUP' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_outer.ctp, line 23]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_outer.ctp, line 23
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:46:17 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_inner.ctp, line 105
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:46:26 Warning: Warning (2): array_unique() expects parameter 1 to be array, null given in [/var/www/html/orangescrum-master/app/Controller/ProjectsController.php, line 1914]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+array_unique - [internal], line ??
+ProjectsController::member_list() - APP/Controller/ProjectsController.php, line 1914
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:46:39 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_inner.ctp, line 105
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:06 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_inner.ctp, line 105
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 406
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 407
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 408
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 409
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 410
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 411
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 412
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (512): You cannot use an empty key for Security::cipher() in [/var/www/html/orangescrum-master/lib/Cake/Utility/Security.php, line 219]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+Security::cipher() - CORE/Cake/Utility/Security.php, line 219
+CookieComponent::_encrypt() - CORE/Cake/Controller/Component/CookieComponent.php, line 485
+CookieComponent::_write() - CORE/Cake/Controller/Component/CookieComponent.php, line 435
+CookieComponent::write() - CORE/Cake/Controller/Component/CookieComponent.php, line 252
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 413
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (2): Illegal string offset 'allfiles' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 418
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (2): Illegal string offset 'storage' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 418
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:20 Warning: Warning (2): Illegal string offset 'file_error' in [/var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php, line 418]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+PostcaseComponent::casePosting() - APP/Controller/Component/PostcaseComponent.php, line 418
+EasycasesController::ajaxpostcase() - APP/Controller/EasycasesController.php, line 371
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 491
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 193
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:22 Error: [SocketException] SMTP server did not accept the password.
+Request URL: /easycases/ajaxemail
+Stack Trace:
+#0 /var/www/html/orangescrum-master/lib/Cake/Network/Email/SmtpTransport.php(87): SmtpTransport->_auth()
+#1 /var/www/html/orangescrum-master/lib/Cake/Network/Email/CakeEmail.php(1173): SmtpTransport->send(Object(CakeEmail))
+#2 /var/www/html/orangescrum-master/lib/Cake/Controller/Component/EmailComponent.php(346): CakeEmail->send('<div style='fon...')
+#3 /var/www/html/orangescrum-master/app/Controller/Component/SendgridComponent.php(52): EmailComponent->send('<div style='fon...')
+#4 /var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php(779): SendgridComponent->sendGridEmail('notify@mycompan...', 'ganeshswain3017...', '[Orangescrum]:M...', '<div style='fon...', 'New', 'ganeshswain3017')
+#5 /var/www/html/orangescrum-master/app/Controller/Component/PostcaseComponent.php(832): PostcaseComponent->generateMsgAndSendMail('1', '', '1', 'Test', '', '1', '1', '2', '<font color='#7...', 'posted a new Ta...', NULL, 'ganeshswain3017', 'd511c794ea9b9fa...', 'New', 'ganeshswain3017...', 'ganeshswain3017', 'http://192.168....')
+#6 /var/www/html/orangescrum-master/app/Controller/EasycasesController.php(4477): PostcaseComponent->mailToUser(Array, Array)
+#7 [internal function]: EasycasesController->ajaxemail()
+#8 /var/www/html/orangescrum-master/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(EasycasesController), Array)
+#9 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/orangescrum-master/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(EasycasesController), Object(CakeRequest))
+#11 /var/www/html/orangescrum-master/app/webroot/index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-09-17 08:47:22 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_inner.ctp, line 105
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+ExceptionRenderer::_outputMessage() - CORE/Cake/Error/ExceptionRenderer.php, line 292
+ExceptionRenderer::error500() - CORE/Cake/Error/ExceptionRenderer.php, line 260
+ExceptionRenderer::render() - CORE/Cake/Error/ExceptionRenderer.php, line 190
+ErrorHandler::handleException() - CORE/Cake/Error/ErrorHandler.php, line 127
+[main] - [internal], line ??
+
+2018-09-17 08:47:22 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_inner.ctp, line 105
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
+2018-09-17 08:47:33 Warning: Warning (2): Use of undefined constant GA_CODE - assumed 'GA_CODE' (this will throw an Error in a future version of PHP) in [/var/www/html/orangescrum-master/app/View/Layouts/default_inner.ctp, line 105]
+Trace:
+ErrorHandler::handleError() - CORE/Cake/Error/ErrorHandler.php, line 230
+include - APP/View/Layouts/default_inner.ctp, line 105
+View::_evaluate() - CORE/Cake/View/View.php, line 971
+View::_render() - CORE/Cake/View/View.php, line 933
+View::renderLayout() - CORE/Cake/View/View.php, line 546
+View::render() - CORE/Cake/View/View.php, line 481
+Controller::render() - CORE/Cake/Controller/Controller.php, line 963
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 200
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 167
+[main] - APP/webroot/index.php, line 92
+
