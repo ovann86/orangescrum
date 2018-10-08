@@ -35,8 +35,6 @@
  ********************************************************************************/
 App::uses('AppController', 'Controller');
 App::import('Vendor', 'oauth');
-App::import('Vendor', 'PHPMailer', array('file' => 'PHPMailer' .DS. 'PHPMailerAutoload.php'));
-// App::import('Vendor', 'autoload');
 class UsersController extends AppController {
     public $name = 'Users';
 	public $components = array('Format','Postcase','Sendgrid','Tmzone','Email','Cookie');
@@ -46,7 +44,7 @@ class UsersController extends AppController {
 	}
 	function beforeRender() {
 	    if($this->Auth->User("id")) {
-		$withOutLoginPage = array('login','license','validate_emailurl','forgotpassword','session_maintain','test_php_mailer');
+		$withOutLoginPage = array('login','license','validate_emailurl','forgotpassword','session_maintain');
 		if(in_array($this->action,$withOutLoginPage)){
 		    $file = ""; $caseid = "";
 		    if(isset($_GET['case'])) {
@@ -640,23 +638,12 @@ class UsersController extends AppController {
 			$this->set('company_name',$comp['Company']['name']);
 			$this->set('fromEmail',$fromEmail);
 			$this->set('fromName',$fromName);
-				if(defined("PHPMAILER") && PHPMAILER == 1){
-					$this->Email->set_variables = $this->render('/Emails/html/forgot_password',false);
-					App::import('Component', 'PhpMailer.PhpMailer');
-					$this->PhpMailer = new PhpMailerComponent();
-					if($this->PhpMailer->sendPhpMailerTemplate($this->Email)){
-						$UserInvitation->query("UPDATE user_invitations set qstr='" . $qstr . "' where qstr='" . $resend . "'");
-						$this->Session->write("SUCCESS", "Invitation resent to '" . $getUser['User']['email'] . "'");
-						$this->redirect(HTTP_ROOT . "users/manage/?role=invited");
-						return;
-					}
-				}else{
-					if ($this->Sendgrid->sendgridsmtp($this->Email)) {
-						$UserInvitation->query("UPDATE user_invitations set qstr='" . $qstr . "' where qstr='" . $resend . "'");
-						$this->Session->write("SUCCESS", "Invitation resent to '" . $getUser['User']['email'] . "'");
-						$this->redirect(HTTP_ROOT . "users/manage/?role=invited");
-					}
-				}
+			
+			if ($this->Sendgrid->sendgridsmtp($this->Email)) {
+				$UserInvitation->query("UPDATE user_invitations set qstr='" . $qstr . "' where qstr='" . $resend . "'");
+				$this->Session->write("SUCCESS", "Invitation resent to '" . $getUser['User']['email'] . "'");
+				$this->redirect(HTTP_ROOT . "users/manage/?role=invited");
+			}
 			}
 		}
 
@@ -850,26 +837,14 @@ class UsersController extends AppController {
 				$this->Email->sendAs = 'html';
 				$this->set('name',$name);
 				$this->set('urlValue',$urlValue);
-				// print"<pre>";
-				// print_r($this->Email); exit;
-				if(defined("PHPMAILER") && PHPMAILER == 1){
-					$this->Email->set_variables = $this->render('/Emails/html/forgot_password',false);
-					App::import('Component', 'PhpMailer.PhpMailer');
-					$this->PhpMailer = new PhpMailerComponent();
-					if($this->PhpMailer->sendPhpMailerTemplate($this->Email)){
-						$this->User->query("UPDATE users SET query_string='".$qstr."' WHERE id=".$id);
-						$this->Session->setFlash("Please check your mail to reset your password", 'default', array('class'=>'success'));
-						$this->redirect(HTTP_ROOT."users/forgotpassword/");
-						return;
-					}
-				}else{
-					if($this->Sendgrid->sendgridsmtp($this->Email)){
-						$this->User->query("UPDATE users SET query_string='".$qstr."' WHERE id=".$id);
-						
-						//$this->Session->write("PASS_SUCCESS","<font style='color:green;'>Please check your mail to reset your password</font>");
-						$this->Session->setFlash("Please check your mail to reset your password", 'default', array('class'=>'success'));
-						$this->redirect(HTTP_ROOT."users/forgotpassword/");
-					}
+		
+				if($this->Sendgrid->sendgridsmtp($this->Email))
+				{
+					$this->User->query("UPDATE users SET query_string='".$qstr."' WHERE id=".$id);
+					
+					//$this->Session->write("PASS_SUCCESS","<font style='color:green;'>Please check your mail to reset your password</font>");
+					$this->Session->setFlash("Please check your mail to reset your password", 'default', array('class'=>'success'));
+					$this->redirect(HTTP_ROOT."users/forgotpassword/");
 				}
 			}
 			else {
@@ -1093,14 +1068,7 @@ class UsersController extends AppController {
 									$this->set('fromName',$fromName);
 									
 									try{
-										if(defined("PHPMAILER") && PHPMAILER == 1){
-											$this->Email->set_variables = $this->render('/Emails/html/invite_user',false);
-											App::import('Component', 'PhpMailer.PhpMailer');
-                                    		$this->PhpMailer = new PhpMailerComponent();
-											$this->PhpMailer->sendPhpMailerTemplate($this->Email);
-										}else{
-											$this->Sendgrid->sendgridsmtp($this->Email);	
-										}							
+										$this->Sendgrid->sendgridsmtp($this->Email);								
 									}Catch(Exception $e){ 
 									}
 								}
@@ -1244,15 +1212,7 @@ class UsersController extends AppController {
 								$this->set('fromName',$fromName);
 
 								try{
-									if(defined("PHPMAILER") && PHPMAILER == 1){
-										$this->Email->set_variables = $this->render('/Emails/html/invite_user',false);
-										App::import('Component', 'PhpMailer.PhpMailer');
-                                    	$this->PhpMailer = new PhpMailerComponent();
-										$this->PhpMailer->sendPhpMailerTemplate($this->Email);
-									}else{
-										$res = $this->Sendgrid->sendgridsmtp($this->Email);			
-									}
-														
+									$res = $this->Sendgrid->sendgridsmtp($this->Email);							
 								}Catch(Exception $e){ 
 								}			
 								$this->Session->write("SUCCESS","Invitation sent to '".$this->request->data['User']['email']."'");
@@ -1491,7 +1451,7 @@ class UsersController extends AppController {
 				}
 				if($this->Auth->user('isactive') == 2){
 					$cookie = array();
-					$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
+					//$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
 					$this->Auth->logout();
 					$this->Session->write("SES_EMAIL",$this->request->data['User']['email']);
 					$this->Session->setFlash("Oops! this account has been deactivated", 'default', array('class'=>'error'));
@@ -1805,14 +1765,7 @@ class UsersController extends AppController {
 		    $this->set('Name', ucfirst($Name));
 		    $this->set('qstr', $qstr);
 		    try{
-		       if(defined("PHPMAILER") && PHPMAILER == 1){
-					$this->Email->set_variables = $this->render('/Emails/html/update_email',false);
-					App::import('Component', 'PhpMailer.PhpMailer');
-                    $this->PhpMailer = new PhpMailerComponent();
-					$this->PhpMailer->sendPhpMailerTemplate($this->Email);
-				}else{
-					$this->Sendgrid->sendgridsmtp($this->Email);	
-				}
+		       $this->Sendgrid->sendgridsmtp($this->Email);
 		    }Catch(Exception $e){ 
 		    }
 		}
@@ -1890,7 +1843,7 @@ class UsersController extends AppController {
 		setcookie('REF_URL','',-1,'/',DOMAIN_COOKIE,false,false);
 		
 		$cookie = array();
-		$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
+		//$this->Cookie->write('Auth.User', $cookie, '-2 weeks');
 		
 		if(SES_ID && !$qsrt) {
 			$this->User->id = SES_ID;
@@ -2952,25 +2905,14 @@ class UsersController extends AppController {
 						$this->set('fromName',$fromName);
 						
 						try{
-							if(defined("PHPMAILER") && PHPMAILER == 1){
-								$this->Email->set_variables = $this->render('/Emails/html/invite_user',false);
-								App::import('Component', 'PhpMailer.PhpMailer');
-								$this->PhpMailer = new PhpMailerComponent();
-								if($this->PhpMailer->sendPhpMailerTemplate($this->Email)){
-									$arr['msg']='succ';
-									$arr['qstr'] = $qstr;
-									echo json_encode($arr);exit;
-								}
+							if($this->Sendgrid->sendgridsmtp($this->Email)){
+								$arr['msg']='succ';
+								$arr['qstr'] = $qstr;
+								echo json_encode($arr);exit;
 							}else{
-								if($this->Sendgrid->sendgridsmtp($this->Email)){
-									$arr['msg']='succ';
-									$arr['qstr'] = $qstr;
-									echo json_encode($arr);exit;
-								}else{
-									$arr['msg']='err';
-									$arr['type'] = 'Mail not sent';
-									echo json_encode($arr);exit;
-								}
+								$arr['msg']='err';
+								$arr['type'] = 'Mail not sent';
+								echo json_encode($arr);exit;
 							}
 						}Catch(Exception $e){ 
 							$arr['msg']='err';
@@ -3348,14 +3290,7 @@ function done_cropimage(){
 		$this->set('multiple',$multiple);
 		$this->set('company_name',$comp['Company']['name']);
 		$this->set('from_name',$from_name);
-		if(defined("PHPMAILER") && PHPMAILER == 1){
-			$this->Email->set_variables = $this->render('/Emails/html/project_add',false);
-			App::import('Component', 'PhpMailer.PhpMailer');
-            $this->PhpMailer = new PhpMailerComponent();
-			return $this->PhpMailer->sendPhpMailerTemplate($this->Email);
-		}else{
-			return $this->Sendgrid->sendgridsmtp($this->Email);	
-		}
+		return $this->Sendgrid->sendgridsmtp($this->Email);
 	}
 	function getting_started(){
 
@@ -3575,50 +3510,5 @@ function done_cropimage(){
             exit;
         }
     }
-   function test_php_mailer(){
-	   	//Create a new PHPMailer instance
-		$mail = new PHPMailer();
-		//Tell PHPMailer to use SMTP
-		$mail->isSMTP();
-		//Enable SMTP debugging
-		// 0 = off (for production use)
-		// 1 = client messages
-		// 2 = client and server messages
-		$mail->SMTPDebug = 2;
-		//Ask for HTML-friendly debug output
-		$mail->Debugoutput = 'tex';
-		//Set the hostname of the mail server
-		$mail->Host = "ssl://smtp.gmail.com";
-		//Set the SMTP port number - likely to be 25, 465 or 587
-		$mail->Port = 465;
-		//Whether to use SMTP authentication
-		$mail->SMTPAuth = true;
-		//Username to use for SMTP authentication
-		$mail->Username = "jaideepkumar1291@gmail.com";
-		//Password to use for SMTP authentication
-		$mail->Password = "jai831004@";
-		//Set who the message is to be sent from
-		$mail->setFrom('jaideepkumar1291@gmail.com', 'First Last');
-		//Set an alternative reply-to address
-		// $mail->addReplyTo('replyto@example.com', 'First Last');
-		//Set who the message is to be sent to
-		$mail->addAddress('jyotiprakash.biswal@andolasoft.co.in ', 'John Doe');
-		//Set the subject line
-		$mail->Subject = 'PHPMailer SMTP without auth test';
-		//Read an HTML message body from an external file, convert referenced images to embedded,
-		//convert HTML into a basic plain-text alternative body
-		$mail->msgHTML('hfjkhjhhj');
-		//Replace the plain text body with one created manually
-		$mail->AltBody = 'This is a plain-text message body';
-		//Attach an image file
-		// $mail->addAttachment('images/phpmailer_mini.png');
-
-		//send the message, check for errors
-		if (!$mail->send()) {
-		echo "Mailer Error: " . $mail->ErrorInfo;
-		} else {
-		echo "Message sent!";
-		}
-		exit;
-   }
+   
 }
