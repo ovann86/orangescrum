@@ -57,11 +57,8 @@ input#txt_Password{font-family: Arial}
                         <li>You have provided the details of <b>SMTP</b> email sending options in <b>`app/Config/constants.php`</b></li>
 <?php
 						}
-<<<<<<< HEAD
 						?>						
-=======
-						?>
->>>>>>> ubuntu
+
                         </ul>
                         </div>
                         <?php
