@@ -18,6 +18,7 @@ define("SMTP_HOST", "ssl://smtp.gmail.com");
 define("SMTP_PORT", "465");
 define("SMTP_UNAME", "youremail@gmail.com");
 define("SMTP_PWORD", "******");
+define("IS_SMTP", "0");
 //https://www.arclab.com/en/amlc/list-of-smtp-and-imap-servers-mailserver-list.html (Get the list of Host names)
 
 ### OR ###
@@ -27,7 +28,7 @@ define("SMTP_PWORD", "******");
 define("SMTP_HOST", "smtp.mandrillapp.com");
 define("SMTP_PORT", "587");
 define("SMTP_UNAME", "youremail@domain.com");
-define("SMTP_PWORD", "******"); //Mandrill API Key
+define("SMTP_PWORD", "******");
 //https://www.mandrill.com/signup/ (free signup to mandrill)
 */
 
