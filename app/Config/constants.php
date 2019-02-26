@@ -18,6 +18,7 @@
 ##define("SMTP_PORT", "465");
 ##define("SMTP_UNAME", "youremail@gmail.com");
 ##define("SMTP_PWORD", "******");
+define("IS_SMTP", "0");
 //https://www.arclab.com/en/amlc/list-of-smtp-and-imap-servers-mailserver-list.html (Get the list of Host names)
 //For Email Parameters//
 $ini_array = parse_ini_file("config.ini.php");
