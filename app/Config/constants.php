@@ -40,6 +40,7 @@ define("SMTP_HOST", "smtp.mandrillapp.com");
 define("SMTP_PORT", "587");
 define("SMTP_UNAME", "youremail@domain.com");
 define("SMTP_PWORD", "******"); //Mandrill API Key
+define("IS_SMTP", "0");
 //https://www.mandrill.com/signup/ (free signup to mandrill)
 */
 
