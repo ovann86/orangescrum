@@ -39,7 +39,8 @@ define('PDF_LIB_PATH', $ini_array['PDF_LIB_PATH']);
 define("SMTP_HOST", "smtp.mandrillapp.com");
 define("SMTP_PORT", "587");
 define("SMTP_UNAME", "youremail@domain.com");
-define("SMTP_PWORD", "******"); //Mandrill API Key
+define("SMTP_PWORD", "******");
+define("IS_SMTP", "0");
 //https://www.mandrill.com/signup/ (free signup to mandrill)
 */
 
