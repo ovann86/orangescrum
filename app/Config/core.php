@@ -47,7 +47,7 @@
  * In production mode, flash messages redirect after a time interval.
  * In development mode, you need to click the flash message to continue.
  */
-	Configure::write('debug',2);
+Configure::write('debug',0);
 
 /**
  * Configure the Error handler used to handle errors for your application.  By default
@@ -306,6 +306,6 @@ Cache::config('_cake_model_', array(
 //Configure::write('Session.ini',array('session.cookie_secure' => false, 'session.referer_check' => false));
 
 
-include("install.php");
-include("constants.php");
+include("setup.php");
+/*include("constants.php"); */
 Configure::load('core-email-settings');
